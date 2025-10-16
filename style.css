@@ -1,7 +1,40 @@
 /* Variables de Color (Tema Claro: Blanco y Turquesa) */
 :root {
     --color-dark-blue: #ffffff;    /* Fondo principal (Blanco) */
-    --color-medium-blue: #013382;  /* Fondo de secciones de contraste (Azul Oscuro) */
+    --color-medium-blue:     .offer-cta {
+        color: #ffffff        .offer-cta {
+            color: #fff !important;
+            text-shadow:
+                -1px -1px 0 #013382,
+                 1px -1px 0 #013382,
+                -1px  1px 0 #013382,
+                 1px  1px 0 #013382;
+                .offer-cta {
+                    background-color: var(--color-red); /* Turquesa antes del hover */
+                    color: #fff;
+                    font-weight: 700;
+                    border-radius: 8px;
+                    padding: 15px 30px;
+                    font-size: 1.2em;
+                    border: none;
+                    transition: background-color 0.3s, transform 0.3s;
+                    text-shadow:
+                        -1px -1px 0 #013382,
+                         1px -1px 0 #013382,
+                        -1px  1px 0 #013382,
+                         1px  1px 0 #013382;
+                }
+                
+                .offer-cta:hover {
+                    background-color: #058886; /* Azul claro al pasar el cursor */
+                    color: var(--color-medium-blue);
+                    transform: translateY(-3px);
+                }
+                // filepath: d:\NEUROFISIK_LANDING_PAGE\neurofisik-landing-page\style.css3382;
+        }
+        /* filepath: d:\NEUROFISIK_LANDING_PAGE\neurofisik-landing-page\style.css */ !important;
+    }
+    // filepath: d:\NEUROFISIK_LANDING_PAGE\neurofisik-landing-page\style.css;  /* Fondo de secciones de contraste (Azul Oscuro) */
     --color-light-blue: #07a7a5;   /* Contornos y detalles (Turquesa) */
     --color-white: #013382;        /* Texto principal oscuro (Azul Oscuro) */
     --color-turquesa: #07a7a5;     /* Logo, CTA, acentos (Turquesa) */
@@ -565,7 +598,7 @@ section {
 }
 
 .offer-cta:hover {
-    background-color: #013382; /* Un azul más oscuro al pasar el ratón */
+    background-color: #f0f0f0; /* Un azul más oscuro al pasar el ratón */
     transform: translateY(-3px);
 }
 
@@ -580,7 +613,7 @@ section {
 /* Selecciona las etiquetas (labels) de los campos dentro de la tarjeta */
 .offer-card label {
     /* CAMBIO CLAVE: Color de texto a blanco */
-    color: var(--color-white, #ffffffff); 
+    color: var(--color-white, rgb(255, 255, 255)); 
     font-weight: 600; /* Asegura que el texto sea negrita */
     margin-bottom: 5px;
     display: block;
@@ -1013,4 +1046,13 @@ input[type="date"], input[type="time"] {
         font-size: 1em;
         padding: 12px 0;
     }
+}
+
+.oferta-titulo {
+    color: #fff !important;
+}
+
+/* Estilo específico para las etiquetas del formulario de oferta */
+.oferta-form label {
+    color: #fff;
 }
