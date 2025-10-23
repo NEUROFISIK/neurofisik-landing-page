@@ -129,8 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Configuración del formulario de Oferta ---
     setupFormToWhatsapp('offer-form', (data) => {
         const attendanceSelect = document.getElementById('offer-attendance');
-        const attendanceText = attendanceSelect.options[attendanceSelect.selectedIndex].text;
-        return `¡Hola, NEUROFISI•K! 😊\n\nSolicito la *OFERTA ESPECIAL 2X1* (Hidroterapia + Masaje Relajante). Por favor, revisen mi solicitud:\n\n* Nombre: ${data['offer-name']}\n* Teléfono: ${data['offer-phone']}\n* Email: ${data['offer-email'] || 'No especificado'}\n* Fecha Deseada: ${data['offer-date']}\n* Hora Preferida: ${data['offer-time']}\n* Asistencia: ${attendanceText}\n\nAgradezco me confirmen la disponibilidad ¡Gracias!`;
+        const attendanceText = attendanceSelect.options[attendanceSelect.selectedIndex].text; // "Acompañada" o "Sola"
+        
+        return `👋 ¡Hola, NEUROFISI•K!
+Quiero asegurar mi cupo para la increíble *OFERTA 2X1* (Hidroterapia + Masaje Relajante).
+
+✨ MIS DATOS DE RESERVA:
+* *Nombre:* ${data['offer-name']}
+* *Celular:* ${data['offer-phone']}
+* *Email:* ${data['offer-email'] || 'No especificado'}
+* *Asistencia:* ${attendanceText}
+
+📅 FECHA Y HORA:
+* *Día Solicitado:* ${data['offer-date']}
+* *Hora:* ${data['offer-time']}
+
+¡Espero su confirmación! ¡Gracias! 🙏`;
     }, () => closeOfferModal());
 
     // --- Configuración del formulario de Contacto Principal ---
@@ -139,7 +153,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const timeText = timeSelect.options[timeSelect.selectedIndex].text;
         const therapySelect = document.getElementById('therapy-type');
         const therapyText = therapySelect.options[therapySelect.selectedIndex].text;
-        return `¡Hola, NEUROFISI•K! 😊\n\nQuiero agendar una cita. Por favor, revisen mi solicitud:\n\n* Nombre: ${data.name}\n* Teléfono: ${data.phone}\n* Email: ${data.email || 'No especificado'}\n* Fecha Deseada: ${data['appointment-date']}\n* Hora Preferida: ${timeText}\n* Terapia de Interés: ${therapyText}\n* Problema: ${data.message}\n\nAgradezco que me confirmen la disponibilidad ¡Gracias!`;
+        return `🎉 SOLICITUD DE CITA | NEUROFISI•K 🎉
+
+¡Hola! Soy un/a paciente interesado/a en agendar una sesión.
+Por favor, confirmen la disponibilidad y revisen mi solicitud:
+
+👤 DATOS DEL PACIENTE:
+* *Nombre Completo:* ${data.name}
+* *Teléfono de Contacto:* ${data.phone}
+* *Email (Opcional):* ${data.email || 'No especificado'}
+
+📅 DETALLES DE LA SOLICITUD:
+* *Fecha Deseada:* 🗓️ ${data['appointment-date']}
+* *Hora Preferida:* 🕒 ${timeText}
+* *Motivo de Consulta:* ${data.message}
+* *Terapia de Interés:* ${therapyText}`;
     }, (form) => form.reset());
 
     // Aplicar validación de domingos a los campos de fecha
