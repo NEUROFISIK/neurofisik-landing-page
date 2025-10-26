@@ -94,6 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // LÓGICA DE FORMULARIOS
     // ===================================
 
+    // --- Función para deshabilitar fechas pasadas en los inputs de fecha ---
+    function setMinDateToToday(dateInput) {
+        if (!dateInput) return;
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexados
+        const day = String(today.getDate()).padStart(2, '0');
+        const todayString = `${year}-${month}-${day}`;
+        dateInput.setAttribute('min', todayString);
+    }
+
     // --- Función para validar fechas (evitar Domingos) ---
     function preventSundays(dateInput) {
         if (!dateInput) return;
@@ -170,7 +181,9 @@ Por favor, confirmen la disponibilidad y revisen mi solicitud:
 * *Terapia de Interés:* ${therapyText}`;
     }, (form) => form.reset());
 
-    // Aplicar validación de domingos a los campos de fecha
+    // Aplicar validaciones a los campos de fecha
+    setMinDateToToday(document.getElementById('offer-date'));
+    setMinDateToToday(document.getElementById('appointment-date'));
     preventSundays(document.getElementById('offer-date'));
     preventSundays(document.getElementById('appointment-date'));
 
